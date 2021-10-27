@@ -84,6 +84,8 @@ namespace assignments_api
             {
                 // endpoints.MapControllers();
                 endpoints.MapControllerRoute("Default", "{controller=ToDo}/{action=get}/{id?}"); 
+                var jsontext = System.IO.File.ReadAllText(@"AssignmentsData.json");
+                Seeding.Seed(jsontext, app.ApplicationServices);
             });
            // app.UseHttpsRedirection();
         }
