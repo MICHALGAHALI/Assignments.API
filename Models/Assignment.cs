@@ -10,11 +10,12 @@ namespace assignments_api.Models
       /// <summary>
       /// מזהה רשימה
       /// </summary>
+      /// [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  [Key]
       public int Id { get; set; }  
       /// <summary>
       /// שם משימה
       /// </summary>
-      [Required]
+      [Required(ErrorMessage = "שם משימה שדה חובה")]
       [StringLength(255)]
       public string Title { get; set; }
       /// <summary>
@@ -31,6 +32,8 @@ namespace assignments_api.Models
       /// </summary>
       [Required]
       [StringLength(255)]
+      
+      //[Column(TypeName = "varchar(20)")]
       public string Description { get; set; }
       /// <summary>
       /// תאריך התחלה

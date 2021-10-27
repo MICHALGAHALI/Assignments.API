@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace assignments_api.Controllers
 {
@@ -31,37 +33,61 @@ namespace assignments_api.Controllers
            return await this.context.Assignments.ToListAsync<Assignment>();
         }
         [HttpGet("/api/todo/{id}")]
-        public async Task<Assignment> Get(int id)
+        public async Task<ActionResult<Assignment>> Get(int id)
         {
-            return await this.context.Assignments.FirstOrDefaultAsync(p=>p.Id==id);
+            var assignment=await this.context.Assignments.FirstOrDefaultAsync<Assignment>(p=>p.Id==id);
+             if (assignment == null)
+             {
+               //_logger.LogError("Owner object sent from client is null.");
+                return NotFound();
+             }
+             return assignment;             
         }
         [HttpPost("/api/todo/{id}")]
-        public void POST (int id,[FromBody]string value)
+        public async Task<ActionResult<Assignment>> POST (int id,[FromBody]Assignment assignment)
         {
+             context.Assignments.Add(assignment);
+             await context.SaveChangesAsync();
+            return CreatedAtAction("Get", new { id = assignment.Id }, assignment);
             //DateTime.ParseExact(query.From, "yyyy-MM-ddTHH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
         }
         [HttpPut("/api/todo/{id}")]
-        public async Task<Assignment> Put (int id)
+        public async Task<ActionResult<Assignment>> Put (int id,[FromBody] Assignment assignment)
         {
-           return await this.context.Assignments.FirstOrDefaultAsync(p=>p.Id==id);
-            // _context.Entry(student).State = EntityState.Modified;
-             //NoContent();
-
+            if (id != assignment.Id)
+            {
+                return BadRequest();
+            }
+            context.Entry<Assignment>(assignment).State = EntityState.Modified;
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                // if (!StudentExists(id))
+                // {
+                //     return NotFound();
+                // }
+                // else
+                // {
+                    throw e;
+                //}
+            } 
+             return NoContent();           
         }
         [HttpDelete("/api/todo/{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Assignment>> Delete(int id)
         {
-
+            var assignment = await context.Assignments.FindAsync(id);
+                if (assignment == null)
+                {
+                    return NotFound();
+                }
+                context.Assignments.Remove(assignment);
+                await context.SaveChangesAsync();
+                return assignment;
         }
     }
 
 }
-
-// id: number;
-//    title: string;//שם משימה
-//    completed: boolean
-//    type?: string//סוג משימה אישית/ עבודה /לימודים
-//    description?: string;//תיאור משימה
-//    beginDate?: string;//התחלת משימה
-//    endDate?: string;//תאריך סיום
-//    isRepeated?: boolean;//חוזרת /חד -פעמי תדירות
