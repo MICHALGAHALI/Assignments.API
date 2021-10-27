@@ -1,3 +1,4 @@
+using assignments_api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace assignments_api.Persistence
@@ -9,6 +10,8 @@ namespace assignments_api.Persistence
      {
          
      }
+     public DbSet<Assignment> Assignments { get; set; }
+     public DbSet<Type> Types { get; set; }
     //  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //     {
     //     optionsBuilder

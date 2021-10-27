@@ -1,7 +1,10 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace assignments_api.Models
 {
+  [Table("Assignments")]
     public class Assignment
     {
       /// <summary>
@@ -11,6 +14,8 @@ namespace assignments_api.Models
       /// <summary>
       /// שם משימה
       /// </summary>
+      [Required]
+      [StringLength(255)]
       public string Title { get; set; }
       /// <summary>
       /// האם משימה הסתיימה
@@ -18,12 +23,14 @@ namespace assignments_api.Models
       /// <value></value>
       public bool Completed { get; set; }
       /// <summary>
-      /// סוג משימה אישית/ עבודה /לימודים
+      /// סוג משימה אישית/ עבודה /לימודים מזהה
       /// </summary>
-      public string Type { get; set; }
+      public int Type { get; set; }
       /// <summary>
       /// תיאור משימה
       /// </summary>
+      [Required]
+      [StringLength(255)]
       public string Description { get; set; }
       /// <summary>
       /// תאריך התחלה

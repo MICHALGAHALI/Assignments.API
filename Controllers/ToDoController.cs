@@ -1,7 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using assignments_api.Models;
+using assignments_api.Persistence;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace assignments_api.Controllers
 {
@@ -9,6 +14,10 @@ namespace assignments_api.Controllers
     [Route("[controller]")]
     public class ToDoController:ControllerBase
     {   
+        private readonly AssignmentDbContext context;
+        public ToDoController(AssignmentDbContext context){
+            this.context=context;
+        }
         // private readonly IJwtAuthorization _jwtAuthorization;
         // private readonly IMapper _mapper;
         // public JwtController(IJwtAuthorization jwtAuthorization,IMapper mapper)
@@ -16,29 +25,27 @@ namespace assignments_api.Controllers
         //     _jwtAuthorization = jwtAuthorization;
         //     _mapper = mapper;
         // }  
-        [HttpGet("/api/todo")]   
-        public IEnumerable<Assignment> Get()
-        {          
-            Assignment assignment=new Assignment(){Completed=false,Description="ffdsaf",FinishDate=DateTime.Now,IsRepeated=false
-            ,StartDate=DateTime.Now,Id=1,Title="העברת חפצים",Type=""};
-            List<Assignment> assignments= new List<Assignment>();
-            assignments.Add(assignment);
-            return assignments;
+        [HttpGet("/api/todos")]   
+        public async Task<IEnumerable<Assignment>> Get()
+        {        
+           return await this.context.Assignments.ToListAsync<Assignment>();
         }
         [HttpGet("/api/todo/{id}")]
-        public Assignment Get(int id)
+        public async Task<Assignment> Get(int id)
         {
-            return new Assignment{Completed=false,Description="ffdsaf",FinishDate=DateTime.Now,IsRepeated=false
-            ,StartDate=DateTime.Now,Id=1,Title="העברת חפצים",Type=""};
+            return await this.context.Assignments.FirstOrDefaultAsync(p=>p.Id==id);
         }
         [HttpPost("/api/todo/{id}")]
         public void POST (int id,[FromBody]string value)
         {
-
+            //DateTime.ParseExact(query.From, "yyyy-MM-ddTHH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
         }
         [HttpPut("/api/todo/{id}")]
-        public void Put (int id,[FromBody]string value)
+        public async Task<Assignment> Put (int id)
         {
+           return await this.context.Assignments.FirstOrDefaultAsync(p=>p.Id==id);
+            // _context.Entry(student).State = EntityState.Modified;
+             //NoContent();
 
         }
         [HttpDelete("/api/todo/{id}")]

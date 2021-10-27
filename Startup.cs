@@ -33,7 +33,9 @@ namespace assignments_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AssignmentDbContext>(options=>options.UseSqlServer(""));
+            services.AddCors(); // Make sure you call this previous to AddMvc             
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest).AddXmlSerializerFormatters();
+            services.AddDbContext<AssignmentDbContext>(options=>options.UseSqlServer("Data Source=MICHALG-PC;Initial Catalog=test1;Integrated Security=True"));                
             services.AddRazorPages();
             services.AddHealthChecks();
             services.AddControllers();
@@ -41,6 +43,11 @@ namespace assignments_api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "assignments_api", Version = "v1" });
             });
+            //services.AddMvc();
+    //.AddXmlSerializerFormatters();
+            // services.AddDbContext<AssignmentDbContext>(options =>
+            // options.UseSqlServer(
+            //     Configuration.GetConnectionString("Defult")));  
             // services
             //     .AddScoped<Implementations.Provider>() 
             //     .AddScoped<IJwtAuthorization,Implementations.Provider>()            
@@ -50,30 +57,16 @@ namespace assignments_api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         { 
-//             ASP.NET Core הציג קונספט חדש בשם Middleware. Middleware אינו אלא component (מחלקה) שמבוצע בכל בקשה ביישום ASP.NET Core.
-
-// ב- ASP.NET הקלאסי HttpHandlers ו- HttpModules היו חלק מצינור הבקשה, והיה צורך ששניהם יהיו מוגדרים ומבוצעים בכל בקשה.
-
-// בדרך כלל, יהיו Middleware מרובים ב- ASP.NET Core web application.
-// Middleware יכול להיות מסופק מה framework, מחבילת NuGet או custom middleware.
-
-// אנו יכולים לקבוע את סדר ביצוע  middleware ב request pipeline. כל middleware מוסיף או משנה את בקשת http ומעביר אפשרות שליטה ל  middleware הבא.
-
-// הדיאגרמה הבאה ממחישה את הסדר הטיפוסי של שכבות middleware.
-// הסדר חשוב מאוד, ולכן הכרחי להבין את המיקום של כל middleware בצינור הבקשה:
-             app.UseAuthorization();
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
+            );
+            app.UseAuthorization();
              app.UseRouting();
              app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("Default", "{controller=ToDo}/{action=get}/{id?}"); 
             });
             
-            // app.UseEndpoints(endpoints =>
-            // {
-            //     endpoints.MapRazorPages(); //Routes for pages
-            //     endpoints.MapControllers(); //Routes for my API controllers
-            // });
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
