@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +12,8 @@ namespace assignments_api.Models
       /// מזהה רשימה
       /// </summary>
       /// [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  [Key]
-      public int Id { get; set; }  
+      [Key]
+      public int IdAssignment { get; set; }  
       /// <summary>
       /// שם משימה
       /// </summary>
@@ -23,10 +25,7 @@ namespace assignments_api.Models
       /// </summary>
       /// <value></value>
       public bool Completed { get; set; }
-      /// <summary>
-      /// סוג משימה אישית/ עבודה /לימודים מזהה
-      /// </summary>
-      public int Type { get; set; }
+      
       /// <summary>
       /// תיאור משימה
       /// </summary>
@@ -47,6 +46,11 @@ namespace assignments_api.Models
       /// האם משימה חוזרת
       /// </summary>
       public bool IsRepeated { get; set; }
+      /// <summary>
+      /// סוג משימה אישית/ עבודה /לימודים מזהה
+      /// </summary>
+      [ForeignKey("FK_Show")]
+      public int IdType { get; set; }
 
     }
 }

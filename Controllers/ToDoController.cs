@@ -28,14 +28,26 @@ namespace assignments_api.Controllers
         //     _mapper = mapper;
         // }  
         [HttpGet("/api/todos")]   
-        public async Task<IEnumerable<Assignment>> Get()
+        public async Task<IEnumerable<object>> Get()
         {        
-           return await this.context.Assignments.ToListAsync<Assignment>();
+          var s= await this.context.Assignments.Join(this.context.Types,t => t.IdType, 
+              assign => assign.Id, (assign, t) => new 
+              {                 
+                    id=assign.IdAssignment,
+                    title=assign.Title,
+                    completed=assign.Completed ,
+                    type=t.Title,
+                    description=assign.Description,//תיאור משימה
+                    startDate=assign.StartDate,
+                    finishDate=assign.FinishDate,//תאריך סיום
+                    isRepeated=assign.IsRepeated//חוזרת /חד -פעמי תדירות
+              }).OrderBy(p=>p.id).ToListAsync();
+              return s;
         }
         [HttpGet("/api/todo/{id}")]
         public async Task<ActionResult<Assignment>> Get(int id)
         {
-            var assignment=await this.context.Assignments.FirstOrDefaultAsync<Assignment>(p=>p.Id==id);
+            var assignment=await this.context.Assignments.FirstOrDefaultAsync<Assignment>(p=>p.IdAssignment==id);
              if (assignment == null)
              {
                //_logger.LogError("Owner object sent from client is null.");
@@ -48,13 +60,13 @@ namespace assignments_api.Controllers
         {
              context.Assignments.Add(assignment);
              await context.SaveChangesAsync();
-            return CreatedAtAction("Get", new { id = assignment.Id }, assignment);
+            return CreatedAtAction("Get", new { id = assignment.IdAssignment }, assignment);
             //DateTime.ParseExact(query.From, "yyyy-MM-ddTHH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
         }
         [HttpPut("/api/todo/{id}")]
         public async Task<ActionResult<Assignment>> Put (int id,[FromBody] Assignment assignment)
         {
-            if (id != assignment.Id)
+            if (id != assignment.IdAssignment)
             {
                 return BadRequest();
             }

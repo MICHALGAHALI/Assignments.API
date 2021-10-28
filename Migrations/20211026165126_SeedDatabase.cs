@@ -9,33 +9,33 @@ namespace assignments_api.Migrations
             migrationBuilder.Sql(@"INSERT INTO [dbo].[Types]
            ([Title])
             VALUES
-           ('עבודה'),
-		   ('לימודים'),
-		   ('אישית')");
-            migrationBuilder.Sql(@"
-            INSERT INTO [dbo].[Assignments]
-           ([Title]
-           ,[Completed]
-           ,[Type]
-           ,[Description]
-           ,[StartDate]
-           ,[FinishDate]
-           ,[IsRepeated])
-            VALUES
-                ('[Title]',
-                1,
-                1,
-                'Description',
-                getdate(),
-                getdate(),
-                0)
-            ");
+           ('Study'),
+		   ('personal'),
+		   ('work')");
+        //     migrationBuilder.Sql(@"
+        //     INSERT INTO [dbo].[Assignments]
+        //    ([Title]
+        //    ,[Completed]
+        //    ,[Type]
+        //    ,[Description]
+        //    ,[StartDate]
+        //    ,[FinishDate]
+        //    ,[IsRepeated])
+        //     VALUES
+        //         ('[Title]',
+        //         1,
+        //         1,
+        //         'Description',
+        //         getdate(),
+        //         getdate(),
+        //         0)
+        //     ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-             migrationBuilder.Sql(@"delete from [dbo].[Assignments]");
-             migrationBuilder.Sql(@"delete from [dbo].[Types]");
+             migrationBuilder.Sql(@"truncate table [dbo].[Assignments]");
+             migrationBuilder.Sql(@"DELETE FROM  [dbo].[Types] DBCC CHECKIDENT ('test1.dbo.Types',RESEED, 0)");
 
         }
     }

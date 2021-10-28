@@ -1,362 +1,146 @@
 [
   {
-    "title": "Acosta Carpenter",
+    "title": "Therese Levy",
     "completed": true,
-    "type": 2,
+    "idType": 2,
+    "description": "PARLEYNET",
+    "startDate": "2020-09-07T03:31:39 -03:00",
+    "finishDate": "2014-02-09T12:40:20 -02:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Amelia Hull",
+    "completed": true,
+    "idType": 2,
+    "description": "POOCHIES",
+    "startDate": "2015-06-14T04:01:38 -03:00",
+    "finishDate": "2016-04-07T11:27:07 -03:00",
+    "isRepeated": true
+  },
+  {
+    "title": "Rebecca Alston",
+    "completed": true,
+    "idType": 3,
+    "description": "ZILPHUR",
+    "startDate": "2014-06-24T09:02:44 -03:00",
+    "finishDate": "2015-11-12T10:17:57 -02:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Kinney Oliver",
+    "completed": false,
+    "idType": 3,
+    "description": "ENORMO",
+    "startDate": "2019-01-25T12:05:05 -02:00",
+    "finishDate": "2014-06-24T12:44:49 -03:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Graciela Figueroa",
+    "completed": true,
+    "idType": 3,
+    "description": "NORSUL",
+    "startDate": "2017-06-21T10:20:23 -03:00",
+    "finishDate": "2016-10-18T03:52:01 -03:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Larson Roach",
+    "completed": false,
+    "idType": 1,
+    "description": "ECRATIC",
+    "startDate": "2018-01-03T03:05:53 -02:00",
+    "finishDate": "2018-06-02T05:50:52 -03:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Laverne Mccall",
+    "completed": false,
+    "idType": 3,
+    "description": "COMBOGENE",
+    "startDate": "2018-07-04T02:13:33 -03:00",
+    "finishDate": "2020-08-01T05:53:00 -03:00",
+    "isRepeated": true
+  },
+  {
+    "title": "Mariana Hendricks",
+    "completed": true,
+    "idType": 3,
+    "description": "XSPORTS",
+    "startDate": "2014-04-05T02:37:59 -03:00",
+    "finishDate": "2018-07-11T01:05:59 -03:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Stanley Oconnor",
+    "completed": false,
+    "idType": 3,
+    "description": "SONGLINES",
+    "startDate": "2017-05-17T07:27:28 -03:00",
+    "finishDate": "2020-05-12T01:34:41 -03:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Frye Cain",
+    "completed": false,
+    "idType": 1,
+    "description": "SPLINX",
+    "startDate": "2019-04-16T08:12:54 -03:00",
+    "finishDate": "2020-06-28T09:45:56 -03:00",
+    "isRepeated": true
+  },
+  {
+    "title": "Castillo Velasquez",
+    "completed": false,
+    "idType": 2,
+    "description": "PORTALINE",
+    "startDate": "2015-01-27T06:47:41 -02:00",
+    "finishDate": "2017-02-22T07:49:02 -02:00",
+    "isRepeated": false
+  },
+  {
+    "title": "Jarvis Downs",
+    "completed": false,
+    "idType": 2,
     "description": "EXTRAGENE",
-    "startDate": "2016-10-05T06:49:51 -03:00",
-    "finishDate": "2019-05-30T01:23:25 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Gay Padilla",
-    "completed": false,
-    "type": 3,
-    "description": "ELENTRIX",
-    "startDate": "2016-09-23T01:14:25 -03:00",
-    "finishDate": "2018-08-29T07:49:27 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Laurel Deleon",
-    "completed": false,
-    "type": 2,
-    "description": "ISOLOGICA",
-    "startDate": "2021-07-18T09:46:56 -03:00",
-    "finishDate": "2018-10-17T01:16:39 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Glover Norris",
-    "completed": true,
-    "type": 1,
-    "description": "GEEKULAR",
-    "startDate": "2019-10-16T12:01:44 -03:00",
-    "finishDate": "2020-08-11T01:52:00 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Hilary Lloyd",
-    "completed": true,
-    "type": 1,
-    "description": "RAMJOB",
-    "startDate": "2014-12-29T12:13:52 -02:00",
-    "finishDate": "2016-09-23T02:13:38 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Dixon Mason",
-    "completed": false,
-    "type": 3,
-    "description": "APPLIDEC",
-    "startDate": "2015-04-15T09:49:11 -03:00",
-    "finishDate": "2017-03-08T04:37:03 -02:00",
+    "startDate": "2014-05-14T10:02:40 -03:00",
+    "finishDate": "2019-03-16T08:53:12 -02:00",
     "isRepeated": false
   },
   {
-    "title": "Berta Davenport",
+    "title": "Anthony Glenn",
     "completed": false,
-    "type": 3,
-    "description": "KOFFEE",
-    "startDate": "2014-03-28T05:08:50 -03:00",
-    "finishDate": "2014-11-09T01:38:52 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Abby Workman",
-    "completed": true,
-    "type": 3,
-    "description": "DAISU",
-    "startDate": "2018-08-25T07:11:36 -03:00",
-    "finishDate": "2019-05-29T05:28:47 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Jennings Mcguire",
-    "completed": false,
-    "type": 2,
-    "description": "SKYBOLD",
-    "startDate": "2021-04-15T11:34:47 -03:00",
-    "finishDate": "2019-06-24T12:39:59 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Small Fisher",
-    "completed": true,
-    "type": 2,
-    "description": "VICON",
-    "startDate": "2015-08-22T01:10:57 -03:00",
-    "finishDate": "2016-01-05T06:07:32 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Marina Carr",
-    "completed": false,
-    "type": 1,
-    "description": "ULTRIMAX",
-    "startDate": "2015-03-05T02:20:11 -02:00",
-    "finishDate": "2015-05-31T07:50:12 -03:00",
+    "idType": 1,
+    "description": "AQUAFIRE",
+    "startDate": "2017-06-29T07:54:29 -03:00",
+    "finishDate": "2017-10-10T11:33:17 -03:00",
     "isRepeated": false
   },
   {
-    "title": "Burgess Mayo",
-    "completed": false,
-    "type": 3,
-    "description": "PRIMORDIA",
-    "startDate": "2016-03-18T12:23:23 -02:00",
-    "finishDate": "2020-08-02T05:19:47 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Hall Winters",
-    "completed": false,
-    "type": 2,
-    "description": "TEMORAK",
-    "startDate": "2020-08-27T07:55:43 -03:00",
-    "finishDate": "2016-06-15T04:29:18 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Alicia Good",
-    "completed": false,
-    "type": 1,
-    "description": "HAWKSTER",
-    "startDate": "2018-10-19T07:39:45 -03:00",
-    "finishDate": "2014-10-15T03:58:46 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Elvira Rice",
+    "title": "David Snow",
     "completed": true,
-    "type": 3,
-    "description": "HALAP",
-    "startDate": "2014-06-23T12:54:17 -03:00",
-    "finishDate": "2014-07-14T03:14:25 -03:00",
+    "idType": 2,
+    "description": "BESTO",
+    "startDate": "2018-12-17T10:14:02 -02:00",
+    "finishDate": "2018-01-27T11:39:06 -02:00",
     "isRepeated": false
   },
   {
-    "title": "Kristine David",
-    "completed": false,
-    "type": 2,
-    "description": "GEOFORMA",
-    "startDate": "2016-03-14T02:22:13 -02:00",
-    "finishDate": "2016-02-03T01:50:06 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Christian Hendricks",
-    "completed": false,
-    "type": 1,
-    "description": "CYTRAK",
-    "startDate": "2021-09-11T09:30:19 -03:00",
-    "finishDate": "2016-03-04T09:22:02 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Douglas Mcintosh",
+    "title": "Lily Larson",
     "completed": true,
-    "type": 3,
-    "description": "DUOFLEX",
-    "startDate": "2016-02-23T07:09:52 -02:00",
-    "finishDate": "2019-12-26T09:38:05 -02:00",
+    "idType": 2,
+    "description": "EXOSPACE",
+    "startDate": "2020-12-05T08:31:54 -02:00",
+    "finishDate": "2015-09-02T08:39:36 -03:00",
     "isRepeated": true
   },
   {
-    "title": "Janna Sanford",
+    "title": "Norris Vasquez",
     "completed": true,
-    "type": 1,
-    "description": "SEALOUD",
-    "startDate": "2015-06-21T09:09:51 -03:00",
-    "finishDate": "2016-08-27T01:45:36 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Benson Chaney",
-    "completed": false,
-    "type": 1,
-    "description": "ECRAZE",
-    "startDate": "2019-01-25T11:43:33 -02:00",
-    "finishDate": "2019-03-30T12:17:33 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Huff Chandler",
-    "completed": false,
-    "type": 3,
-    "description": "SNACKTION",
-    "startDate": "2014-07-29T05:49:49 -03:00",
-    "finishDate": "2015-07-27T11:44:38 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Rosella Salazar",
-    "completed": false,
-    "type": 3,
-    "description": "FIBRODYNE",
-    "startDate": "2014-06-25T10:25:11 -03:00",
-    "finishDate": "2020-10-15T10:35:53 -03:00",
+    "idType": 2,
+    "description": "MINGA",
+    "startDate": "2015-07-24T05:49:44 -03:00",
+    "finishDate": "2021-02-20T11:24:01 -02:00",
     "isRepeated": false
-  },
-  {
-    "title": "Contreras Hunt",
-    "completed": true,
-    "type": 2,
-    "description": "COMTENT",
-    "startDate": "2014-04-07T11:34:38 -03:00",
-    "finishDate": "2018-09-11T11:01:30 -03:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Guerrero Huff",
-    "completed": true,
-    "type": 2,
-    "description": "SHADEASE",
-    "startDate": "2018-12-29T02:57:22 -02:00",
-    "finishDate": "2017-11-20T04:30:09 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Crosby Nielsen",
-    "completed": false,
-    "type": 3,
-    "description": "KATAKANA",
-    "startDate": "2016-02-17T02:57:36 -02:00",
-    "finishDate": "2014-11-01T04:47:22 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Karla Coffey",
-    "completed": false,
-    "type": 2,
-    "description": "UXMOX",
-    "startDate": "2020-03-02T12:06:58 -02:00",
-    "finishDate": "2015-11-19T04:44:10 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Kara Gould",
-    "completed": false,
-    "type": 3,
-    "description": "ZAJ",
-    "startDate": "2018-07-04T04:04:20 -03:00",
-    "finishDate": "2017-05-07T01:35:19 -03:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Cohen Lowery",
-    "completed": true,
-    "type": 1,
-    "description": "XEREX",
-    "startDate": "2014-08-21T11:43:16 -03:00",
-    "finishDate": "2016-01-26T10:28:14 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Morton Decker",
-    "completed": true,
-    "type": 3,
-    "description": "DECRATEX",
-    "startDate": "2018-01-29T08:25:38 -02:00",
-    "finishDate": "2019-02-21T10:14:36 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Summers Schultz",
-    "completed": true,
-    "type": 1,
-    "description": "MELBACOR",
-    "startDate": "2017-03-22T05:53:20 -02:00",
-    "finishDate": "2015-12-28T06:30:37 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Conner Carrillo",
-    "completed": false,
-    "type": 3,
-    "description": "FURNIGEER",
-    "startDate": "2019-03-12T05:51:15 -02:00",
-    "finishDate": "2015-10-12T08:43:16 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Pierce Leach",
-    "completed": true,
-    "type": 1,
-    "description": "STUCCO",
-    "startDate": "2016-07-10T11:52:45 -03:00",
-    "finishDate": "2018-07-25T09:51:04 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Ebony Sharp",
-    "completed": true,
-    "type": 3,
-    "description": "SUREPLEX",
-    "startDate": "2014-03-02T08:22:03 -02:00",
-    "finishDate": "2018-08-16T06:00:30 -03:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Ochoa Stevenson",
-    "completed": false,
-    "type": 2,
-    "description": "QNEKT",
-    "startDate": "2016-10-12T10:01:46 -03:00",
-    "finishDate": "2019-02-16T01:22:38 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Jeanine Travis",
-    "completed": true,
-    "type": 1,
-    "description": "FISHLAND",
-    "startDate": "2014-07-15T11:30:09 -03:00",
-    "finishDate": "2014-06-01T12:49:00 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Frye Avery",
-    "completed": false,
-    "type": 3,
-    "description": "KEEG",
-    "startDate": "2017-11-18T04:39:53 -02:00",
-    "finishDate": "2017-02-13T06:35:43 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Esmeralda Hall",
-    "completed": true,
-    "type": 3,
-    "description": "FANGOLD",
-    "startDate": "2020-09-25T05:42:15 -03:00",
-    "finishDate": "2016-03-09T10:08:33 -02:00",
-    "isRepeated": false
-  },
-  {
-    "title": "Sandoval Suarez",
-    "completed": false,
-    "type": 3,
-    "description": "ACUSAGE",
-    "startDate": "2016-05-09T07:06:28 -03:00",
-    "finishDate": "2021-05-04T08:03:32 -03:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Potter Reid",
-    "completed": true,
-    "type": 3,
-    "description": "CANDECOR",
-    "startDate": "2021-03-18T05:49:50 -02:00",
-    "finishDate": "2021-03-23T07:39:55 -02:00",
-    "isRepeated": true
-  },
-  {
-    "title": "Noel Ewing",
-    "completed": false,
-    "type": 2,
-    "description": "LIMAGE",
-    "startDate": "2014-06-10T05:21:30 -03:00",
-    "finishDate": "2015-10-22T08:31:38 -03:00",
-    "isRepeated": true
   }
 ]

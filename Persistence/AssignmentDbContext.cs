@@ -10,8 +10,26 @@ namespace assignments_api.Persistence
      {
          
      }
+    //  protected override void OnModelCreating(ModelBuilder modelBuilder)
+	//  {
+	// 	foreach(var e in modelBuilder.Model.GetEntityTypes())
+	// 	{
+	// 		foreach(var fk in e.GetForeignKeys())
+	// 		{
+	// 			fk.DeleteBehavior = DeleteBehavior.Restrict;
+	// 		}
+	// 	}
+	//  }
      public DbSet<Assignment> Assignments { get; set; }
      public DbSet<Type> Types { get; set; }
+      //protected override void OnModelCreating(ModelBuilder modelBuilder)
+      //{
+        // modelBuilder.Entity<Assignment>()
+        //     .HasOne(p => p.IdType)
+        //     .WithMany(b => b.Posts)
+        //     .HasForeignKey(p => p.BlogUrl)
+        //     .HasPrincipalKey(b => b.Url);
+    // }
     //  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //     {
     //     optionsBuilder
