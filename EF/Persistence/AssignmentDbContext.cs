@@ -1,7 +1,7 @@
-using assignments_api.Models;
+using assignments_api.EF.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace assignments_api.Persistence
+namespace assignments_api.EF.Persistence
 {
     public class AssignmentDbContext:DbContext
     {
@@ -21,7 +21,7 @@ namespace assignments_api.Persistence
 	// 	}
 	//  }
      public DbSet<Assignment> Assignments { get; set; }
-     public DbSet<Type> Types { get; set; }
+     public DbSet<TypeTask> Types { get; set; }
       //protected override void OnModelCreating(ModelBuilder modelBuilder)
       //{
         // modelBuilder.Entity<Assignment>()

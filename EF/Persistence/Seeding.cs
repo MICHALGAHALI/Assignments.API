@@ -1,4 +1,4 @@
-using assignments_api.Models;
+using assignments_api.EF.Models;
 using JsonNet.PrivateSettersContractResolvers;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace assignments_api.Persistence
+namespace assignments_api.EF.Persistence
 {
     public class Seeding
     {

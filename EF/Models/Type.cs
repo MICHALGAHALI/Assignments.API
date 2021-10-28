@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace assignments_api.Models
+namespace assignments_api.EF.Models
 {
-    public class Type
+    public class TypeTask
     {
       [Key]
       public int Id { get; set; } 

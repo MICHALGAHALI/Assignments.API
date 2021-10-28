@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace assignments_api.Models
+namespace assignments_api.EF.Models
 {
   [Table("Assignments")]
     public class Assignment

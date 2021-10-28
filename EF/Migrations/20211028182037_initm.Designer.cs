@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using assignments_api.Persistence;
+using assignments_api.EF.Persistence;
 
 namespace assignments_api.Migrations
 {
     [DbContext(typeof(AssignmentDbContext))]
-    [Migration("20211026155703_InitialModel1")]
-    partial class InitialModel1
+    [Migration("20211028182037_initm")]
+    partial class initm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace assignments_api.Migrations
 
             modelBuilder.Entity("assignments_api.Models.Assignment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdAssignment")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -39,6 +39,9 @@ namespace assignments_api.Migrations
                     b.Property<DateTime>("FinishDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdType")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsRepeated")
                         .HasColumnType("bit");
 
@@ -50,10 +53,12 @@ namespace assignments_api.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("Type")
+                    b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdAssignment");
+
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Assignments");
                 });
@@ -73,6 +78,18 @@ namespace assignments_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Types");
+                });
+
+            modelBuilder.Entity("assignments_api.Models.Assignment", b =>
+                {
+                    b.HasOne("assignments_api.Models.Type", null)
+                        .WithMany("Assignments")
+                        .HasForeignKey("TypeId");
+                });
+
+            modelBuilder.Entity("assignments_api.Models.Type", b =>
+                {
+                    b.Navigation("Assignments");
                 });
 #pragma warning restore 612, 618
         }

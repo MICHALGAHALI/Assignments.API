@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using assignments_api.Models;
-using assignments_api.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using assignments_api.EF.Persistence;
+using assignments_api.EF.Models;
 
 namespace assignments_api.Controllers
 {
@@ -30,7 +30,8 @@ namespace assignments_api.Controllers
         [HttpGet("/api/todos")]   
         public async Task<IEnumerable<object>> Get()
         {        
-          var s= await this.context.Assignments.Join(this.context.Types,t => t.IdType, 
+          var s= await this.context.Assignments.Join
+          (this.context.Types,t => t.IdType, 
               assign => assign.Id, (assign, t) => new 
               {                 
                     id=assign.IdAssignment,
@@ -69,7 +70,9 @@ namespace assignments_api.Controllers
             if (id != assignment.IdAssignment)
             {
                 return BadRequest();
-            }
+            }            
+            context.Assignments.Update(assignment);
+            
             context.Entry<Assignment>(assignment).State = EntityState.Modified;
             try
             {
