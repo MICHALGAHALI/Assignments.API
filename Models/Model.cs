@@ -7,14 +7,14 @@ namespace assignments_api.Models
 {
     public class Model
     {
-      public int Id { get; set; }  
+      public int? Id { get; set; }  
       public string Title { get; set; }
       public bool Completed { get; set; }    
       public string Description { get; set; }
       public DateTime StartDate { get; set; }
       public DateTime FinishDate { get; set; }
       public bool IsRepeated { get; set; }
-      public string Type { get; set; }
+      public TypeTask Type { get; set; }
       public Model()
       {
           
@@ -24,7 +24,7 @@ namespace assignments_api.Models
            Id=assign.IdAssignment;
            Title=assign.Title;
            Completed=assign.Completed;
-           Type= typeTasks.FirstOrDefault(t=>t.Id.Equals(assign.IdType)).Title;       
+           Type= typeTasks.FirstOrDefault(t=>t.Id.Equals(assign.IdType));       
            Description=assign.Description;
            StartDate=assign.StartDate;
            FinishDate=assign.FinishDate;

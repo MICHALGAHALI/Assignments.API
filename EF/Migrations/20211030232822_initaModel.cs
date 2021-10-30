@@ -2,7 +2,7 @@
 
 namespace assignments_api.Migrations
 {
-    public partial class initm : Migration
+    public partial class initaModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,21 +16,31 @@ namespace assignments_api.Migrations
                 table: "Assignments",
                 newName: "IdAssignment");
 
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "Assignments",
+                type: "nvarchar(255)",
+                maxLength: 255,
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(255)",
+                oldMaxLength: 255);
+
             migrationBuilder.AddColumn<int>(
-                name: "TypeId",
+                name: "TypeTaskId",
                 table: "Assignments",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Assignments_TypeId",
+                name: "IX_Assignments_TypeTaskId",
                 table: "Assignments",
-                column: "TypeId");
+                column: "TypeTaskId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Assignments_Types_TypeId",
+                name: "FK_Assignments_Types_TypeTaskId",
                 table: "Assignments",
-                column: "TypeId",
+                column: "TypeTaskId",
                 principalTable: "Types",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
@@ -39,15 +49,15 @@ namespace assignments_api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Assignments_Types_TypeId",
+                name: "FK_Assignments_Types_TypeTaskId",
                 table: "Assignments");
 
             migrationBuilder.DropIndex(
-                name: "IX_Assignments_TypeId",
+                name: "IX_Assignments_TypeTaskId",
                 table: "Assignments");
 
             migrationBuilder.DropColumn(
-                name: "TypeId",
+                name: "TypeTaskId",
                 table: "Assignments");
 
             migrationBuilder.RenameColumn(
@@ -59,6 +69,18 @@ namespace assignments_api.Migrations
                 name: "IdAssignment",
                 table: "Assignments",
                 newName: "Id");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "Assignments",
+                type: "nvarchar(255)",
+                maxLength: 255,
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(255)",
+                oldMaxLength: 255,
+                oldNullable: true);
         }
     }
 }

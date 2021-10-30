@@ -10,8 +10,8 @@ using assignments_api.EF.Persistence;
 namespace assignments_api.Migrations
 {
     [DbContext(typeof(AssignmentDbContext))]
-    [Migration("20211028182037_initm")]
-    partial class initm
+    [Migration("20211030232822_initaModel")]
+    partial class initaModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace assignments_api.Migrations
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("assignments_api.Models.Assignment", b =>
+            modelBuilder.Entity("assignments_api.EF.Models.Assignment", b =>
                 {
                     b.Property<int>("IdAssignment")
                         .ValueGeneratedOnAdd()
@@ -32,7 +32,6 @@ namespace assignments_api.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -53,17 +52,17 @@ namespace assignments_api.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("TypeId")
+                    b.Property<int?>("TypeTaskId")
                         .HasColumnType("int");
 
                     b.HasKey("IdAssignment");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("TypeTaskId");
 
                     b.ToTable("Assignments");
                 });
 
-            modelBuilder.Entity("assignments_api.Models.Type", b =>
+            modelBuilder.Entity("assignments_api.EF.Models.TypeTask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,14 +79,14 @@ namespace assignments_api.Migrations
                     b.ToTable("Types");
                 });
 
-            modelBuilder.Entity("assignments_api.Models.Assignment", b =>
+            modelBuilder.Entity("assignments_api.EF.Models.Assignment", b =>
                 {
-                    b.HasOne("assignments_api.Models.Type", null)
+                    b.HasOne("assignments_api.EF.Models.TypeTask", null)
                         .WithMany("Assignments")
-                        .HasForeignKey("TypeId");
+                        .HasForeignKey("TypeTaskId");
                 });
 
-            modelBuilder.Entity("assignments_api.Models.Type", b =>
+            modelBuilder.Entity("assignments_api.EF.Models.TypeTask", b =>
                 {
                     b.Navigation("Assignments");
                 });

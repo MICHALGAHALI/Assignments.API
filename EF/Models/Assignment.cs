@@ -13,7 +13,7 @@ namespace assignments_api.EF.Models
       /// <summary>
       /// מזהה רשימה
       /// </summary>
-      /// [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  [Key]
+      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
       [Key]
       public int IdAssignment { get; set; }  
       /// <summary>
@@ -57,13 +57,13 @@ namespace assignments_api.EF.Models
       }
       public Assignment(Model model,List<TypeTask> typeTasks)
       {
-           IdAssignment=model.Id;
+           //IdAssignment=model.Id==null?0:1;
            Title=model.Title;
            Completed=model.Completed;
-           IdType= typeTasks.FirstOrDefault(t=>t.Title.Equals(model.Type)).Id;       
+           IdType= model.Type.Id;       
            Description=model.Description;
-           StartDate=model.StartDate;
-           FinishDate=model.FinishDate;
+           //StartDate=model.StartDate;
+           //FinishDate=model.FinishDate;
            IsRepeated=model.IsRepeated;
       }
 

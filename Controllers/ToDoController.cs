@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using assignments_api.EF.Persistence;
 using assignments_api.EF.Models;
 using assignments_api.Models;
+using System.Text.Json;
 
 namespace assignments_api.Controllers
 {
@@ -39,7 +40,7 @@ namespace assignments_api.Controllers
                     Id = assign.IdAssignment,
                     Title = assign.Title,
                     Completed = assign.Completed,
-                    Type = t.Title,
+                    Type = t,
                     Description = assign.Description,//תיאור משימה
                     StartDate = assign.StartDate,
                     FinishDate = assign.FinishDate,//תאריך סיום
@@ -57,16 +58,23 @@ namespace assignments_api.Controllers
                 return NotFound();
             return model;
         }
-        [HttpPost("/api/todo/{id}")]
-        public async Task<ActionResult<Model>> POST(int id, [FromBody] Model model)
+        [HttpPost("/api/todo/")]
+        public async Task<ActionResult<Model>> POST([FromBody] Model model)
         {
+           try{
             var types = await this.context.Types.ToListAsync<TypeTask>();
             Assignment assignment = new Assignment(model, types);
             context.Assignments.Add(assignment);
             await context.SaveChangesAsync();
-            return CreatedAtAction("Get", new { id = assignment.IdAssignment }, assignment);
-            //DateTime.ParseExact(query.From, "yyyy-MM-ddTHH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
+            return Ok();
+            //CreatedAtAction("Get", new { id = assignment.IdAssignment }, assignment);
+             }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw e;
+            }
         }
+
         [HttpPut("/api/todo/{id}")]
         public async Task<ActionResult<Assignment>> Put(int id, [FromBody] Model model)
         {
@@ -78,6 +86,8 @@ namespace assignments_api.Controllers
                 }
                 var types = await this.context.Types.ToListAsync<TypeTask>();
                 Assignment assignment = new Assignment(model, types);
+                int a=model.Id==null?0:(int)model.Id;
+                assignment.IdAssignment=a;
                 context.Assignments.Update(assignment);
                 context.Entry<Assignment>(assignment).State = EntityState.Modified;
                 await context.SaveChangesAsync();
