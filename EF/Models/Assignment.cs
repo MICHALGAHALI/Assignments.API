@@ -55,15 +55,15 @@ namespace assignments_api.EF.Models
       {
           
       }
-      public Assignment(Model model,List<TypeTask> typeTasks)
+      public Assignment(AssignmentModel model,List<TypeTask> typeTasks)
       {
            //IdAssignment=model.Id==null?0:1;
-           Title=model.Title;
-           Completed=model.Completed;
-           IdType= model.Type.Id;       
+           Title=model.Title;           
+           IdType= model.Type.Id;    
+           Completed=model.Completed==null?false:(bool)model.Completed;   
            Description=model.Description;
-           //StartDate=model.StartDate;
-           //FinishDate=model.FinishDate;
+           StartDate=model.RangeDates.StartDate;
+           FinishDate=model.RangeDates.FinishDate;
            IsRepeated=model.IsRepeated;
       }
 

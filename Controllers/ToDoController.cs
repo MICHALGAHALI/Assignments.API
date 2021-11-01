@@ -31,35 +31,34 @@ namespace assignments_api.Controllers
         //     _mapper = mapper;
         // }  
         [HttpGet("/api/todos")]
-        public async Task<IEnumerable<Model>> Get()
+        public async Task<IEnumerable<AssignmentModel>> Get()
         {
-            IEnumerable<Model> s = await this.context.Assignments.Join
+            IEnumerable<AssignmentModel> s = await this.context.Assignments.Join
             (this.context.Types, t => t.IdType,
-                assign => assign.Id, (assign, t) => new Model
+                assign => assign.Id, (assign, t) => new AssignmentModel
                 {
                     Id = assign.IdAssignment,
                     Title = assign.Title,
                     Completed = assign.Completed,
                     Type = t,
                     Description = assign.Description,//תיאור משימה
-                    StartDate = assign.StartDate,
-                    FinishDate = assign.FinishDate,//תאריך סיום
+                    RangeDates=new RangeDates{StartDate=assign.StartDate,FinishDate=assign.FinishDate},
                     IsRepeated = assign.IsRepeated//חוזרת /חד -פעמי תדירות
-              }).OrderByDescending(p => p.StartDate).ToListAsync<Model>();
+              }).OrderByDescending(p => p.RangeDates.StartDate).ToListAsync<AssignmentModel>();
             return s;
         }
         [HttpGet("/api/todo/{id}")]
-        public async Task<ActionResult<Model>> Get(int id)
+        public async Task<ActionResult<AssignmentModel>> Get(int id)
         {
             var assignment = await this.context.Assignments.FirstOrDefaultAsync<Assignment>(p => p.IdAssignment == id);
             var types = await this.context.Types.ToListAsync<TypeTask>();
-            Model model = new Model(assignment, types);
+            AssignmentModel model = new AssignmentModel(assignment, types);
             if (model == null)
                 return NotFound();
             return model;
         }
         [HttpPost("/api/todo/")]
-        public async Task<ActionResult<Model>> POST([FromBody] Model model)
+        public async Task<ActionResult<AssignmentModel>> POST([FromBody] AssignmentModel model)
         {
            try{
             var types = await this.context.Types.ToListAsync<TypeTask>();
@@ -76,7 +75,7 @@ namespace assignments_api.Controllers
         }
 
         [HttpPut("/api/todo/{id}")]
-        public async Task<ActionResult<Assignment>> Put(int id, [FromBody] Model model)
+        public async Task<ActionResult<Assignment>> Put(int id, [FromBody] AssignmentModel model)
         {
             try
             {
@@ -96,7 +95,7 @@ namespace assignments_api.Controllers
             {
                 throw e;
             }
-            return NoContent();
+            return Ok();
         }
         [HttpDelete("/api/todo/{id}")]
         public async Task<ActionResult<Assignment>> Delete(int id)
